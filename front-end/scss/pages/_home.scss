@@ -1,3 +1,4 @@
+//start header stying
 #header {
     margin-top: 4em;
     display: flex;
@@ -5,6 +6,7 @@
 
     h3 {
         font-family: $ptSans;
+        font-size: 2.6em;
     }
 
     P {
@@ -16,45 +18,26 @@
 
         .display {
             max-height: 15em;
-            position: relative;
-            left: 5em;
+            margin-left: 10em;
         }
 
-        .mobile {
-            max-height: 10em;
-            position: relative;
-            left: -18em;
-            top: 3em;
+        @include mediaMax(769px) {
+
+
+            .display {
+                margin-left: 3em;
+            }
         }
 
         @include mediaMax(576px) {
             text-align: center;
             margin-top: 1em;
 
-            .mobile {
-                max-height: 7em;
-                top: 2em;
-                left: -9.7em;
-            }
-
             .display {
                 max-height: 9em;
-                left: 5em;
+                margin-left: 0;
             }
         }
-
-        @include mediaMin(576px) {
-            .mobile {
-                top: 2em;
-                left: -13em;
-            }
-
-            .display {
-                left: 10em;
-            }
-        }
-
-
     }
 
     .text-style {
@@ -64,14 +47,18 @@
         }
     }
 
-    @include mediaMax(575px) {
+    @include mediaMax(769px) {
         p {
             width: 100%;
         }
+
+        h3 {
+            font-size: 2.3em;
+        }
     }
-
-
 }
+
+// end header style
 
 // latest work styles
 #latest-work {
@@ -79,17 +66,21 @@
 
     .work-img {
         text-align: center;
-        margin-bottom: 3em;
+        margin-bottom: 2em;
+        overflow: hidden;
+        height: 300px;
 
         img {
+            max-height: 30em;
 
-            max-height: 300px
+            @include mediaMax(769px) {
+                max-height: 22em;
+            }
         }
     }
 
     .latest-work-nav {
-        display: flex;
-        justify-content: space-between;
+        margin-bottom: 2em;
 
         ul {
             list-style: none;
@@ -108,6 +99,204 @@
                 color: $whiteColor;
                 background-color: $greenColor;
             }
+
+            &:hover,
+            &:focus {
+                color: $whiteColor;
+                background-color: $greenColor;
+                cursor: pointer;
+            }
         }
     }
+}
+
+#our-services {
+    padding: 2em 1em;
+
+    .shrink-paragraph {
+        width: 45%;
+
+        @include mediaMax(769px) {
+            & {
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+
+
+    }
+
+    .services-imgs {
+        text-align: center;
+        padding-bottom: 2em;
+
+        img {
+            max-width: 100%;
+            height: 9em;
+            margin-bottom: 2em;
+        }
+
+        h4 {
+            text-transform: capitalize;
+            color: $mutedBlack;
+        }
+
+        p {
+            color: #6c757d;
+        }
+    }
+}
+
+// testimonials
+#testimonials {
+    text-align: center;
+    padding: 3em 2em;
+    position: relative;
+
+    .title {
+        h1 {
+            font-size: 2.7em;
+            color: #0a0b0c;
+        }
+    }
+
+    .client-box {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .circle-div {
+            border-radius: 50%;
+            width: 90px;
+            overflow: hidden;
+            height: 90px;
+            border: 4px solid #fff;
+
+            img {
+                object-position: -10px 0;
+                object-fit: none;
+            }
+        }
+
+        h4 {
+            margin: .5em 0 .2em;
+            font-family: 'raleway', sans-serif;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        figcaption {
+            color: #a8a5a2;
+            font-family: 'raleway', sans-serif;
+            font-weight: 500;
+            font-size: .9em;
+        }
+    }
+
+    .container {
+        p {
+            font-family: 'raleway', sans-serif;
+            color: #292a2b;
+            padding: 0 6em;
+        }
+    }
+
+    .bullets {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        margin-top: 4em;
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+
+        }
+
+        li {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-left: .9em;
+            border-radius: 50%;
+            cursor: pointer;
+
+            span {
+                color: #fff;
+                background-color: #a8a5a2;
+                display: inline-block;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                margin: 6px auto;
+            }
+
+            &:hover {
+                border: 1px solid #1769ff;
+                background-color: #fff;
+
+                span {
+                    background-color: #1769ff;
+                }
+            }
+
+            &:focus {
+                border: 1px solid #1769ff;
+                background-color: #fff;
+            }
+        }
+
+        .active {
+            span {
+                background-color: #1769ff;
+            }
+        }
+    }
+
+    .active {
+        border: 1px solid #1769ff;
+        background-color: #fff;
+    }
+
+    .display-none {
+        display: none;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -30px;
+        padding: 16px;
+        color: #888;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+        position: absolute;
+        right: 20px;
+        border-radius: 0 3px 3px 0;
+
+    }
+
+    .prev {
+        position: absolute;
+        left: 20px;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
 }

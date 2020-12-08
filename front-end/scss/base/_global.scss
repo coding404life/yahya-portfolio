@@ -7,4 +7,12 @@ body {
     font-family: $sans;
     font-weight: $light;
     transition: all ease-in-out 250ms;
+    background-color: #fbfbfb;
+}
+
+// global classes
+.muted-heading {
+    color: $mutedBlack;
+    font-size: 2.1em;
+    text-transform: capitalize;
 }
