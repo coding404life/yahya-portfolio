@@ -1,15 +1,15 @@
 'use strict';
 $(document).ready(() => {
-    // * --------------------------------------start navbar click event------------------------------- *
+    // * ----------start navbar click event------------------ *
     $('#navbarNav ul').click(function (e) {
         e.preventDefault();
         $(e.target).addClass('active').parent().siblings().children().removeClass('active');
     });
 
-    // * --------------------------------------end navbar click event------------------------------- *
+    // * -----------------end navbar click event------------ *
 
 
-    // * --------------------------------------start nav on scroll------------------------------- *
+    // * --------------start nav on scroll------------------ *
 
     // 1- on scroll fire the function navScroll function
     $(window).scroll(() => {
@@ -25,10 +25,10 @@ $(document).ready(() => {
             $('.navbar').removeClass('sticky');
         }
     }
-    // * ---------------------------------end nav on scroll---------------------------------- *
+    // * ---------------end nav on scroll------------------- *
 
 
-    // * --------------------------start latest work section------------------------------------ *
+    // * -----------------start latest work section----------- *
 
     // 1- when clicking on nav link show  content and hide content dosent have specefic class name
     $('#work-nav').click((e) => {
@@ -96,17 +96,21 @@ $(document).ready(() => {
                 break;
         }
     });
-    // * ------------------------------------end latest work section--------------------------- *
+    // * ----------------end latest work section---------------- *
 
 
-    // * ---------------------------------start-testimonials slider code------------------------------- *
+    // * -----------start-testimonials slider code------------ *
     let clientIndex = 1;
 
     slide(clientIndex);
-
-    function plusSlides(n) {
-        slide(clientIndex += n);
-    }
+    // if button on click has class prev slide back if has class next slide forward
+    $('.next, .prev').click(function (e) {
+        if ($(e.target).hasClass("prev")) {
+            slide(clientIndex += -1);
+        } else {
+            slide(clientIndex += 1);
+        }
+    });
 
     setInterval(function () {
         slide(clientIndex += 1);
@@ -132,5 +136,5 @@ $(document).ready(() => {
         slide[clientIndex - 1].classList.remove('display-none');
         bullets[clientIndex - 1].classList.add('active');
     }
-    // * ----------------------------------end-testimonials slider code------------------------------ *
+    // * -------------end-testimonials slider code---------------- *
 });
