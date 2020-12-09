@@ -6,7 +6,6 @@
 
     h3 {
         font-family: $ptSans;
-        font-size: 2.6em;
     }
 
     P {
@@ -53,7 +52,7 @@
         }
 
         h3 {
-            font-size: 2.3em;
+            font-size: 2em;
         }
     }
 }
@@ -72,10 +71,18 @@
 
         img {
             max-height: 30em;
+            transition: transform .3s; // animation
+            cursor: pointer;
 
             @include mediaMax(769px) {
                 max-height: 22em;
             }
+
+
+            &:hover {
+                transform: scale(1.5);
+            }
+
         }
     }
 
@@ -105,6 +112,14 @@
                 color: $whiteColor;
                 background-color: $greenColor;
                 cursor: pointer;
+            }
+
+            @include mediaMax(375px) {
+                & {
+                    margin-right: 0;
+                    margin-bottom: .5em;
+                    padding: 5px 7px;
+                }
             }
         }
     }
@@ -152,13 +167,6 @@
     text-align: center;
     padding: 3em 2em;
     position: relative;
-
-    .title {
-        h1 {
-            font-size: 2.7em;
-            color: #0a0b0c;
-        }
-    }
 
     .client-box {
         display: flex;
@@ -268,7 +276,7 @@
     .next {
         cursor: pointer;
         position: absolute;
-        top: 50%;
+        top: 40%;
         width: auto;
         margin-top: -30px;
         padding: 16px;
@@ -296,6 +304,24 @@
         position: absolute;
         left: 20px;
         border-radius: 3px 0 0 3px;
+    }
+
+    @include mediaMax(769px) {
+        padding: 3em 0;
+
+        .container p {
+            padding: 0 2em;
+        }
+
+        .title h1 {
+            font-size: 1.9em;
+        }
+    }
+
+    @include mediaMax(576px) {
+        .container p {
+            padding: 0;
+        }
     }
 
     /* On hover, add a black background color with a little bit see-through */

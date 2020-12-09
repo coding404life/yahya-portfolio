@@ -13,6 +13,18 @@ body {
 // global classes
 .muted-heading {
     color: $mutedBlack;
-    font-size: 2.1em;
+    @include font-size(40px);
     text-transform: capitalize;
+
+    @include mediaMax(769px) {
+        margin-bottom: 1em;
+    }
+}
+
+.sticky {
+    background-color: #fbfbfb;
+    box-shadow: 0 0 15px #777;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
 }

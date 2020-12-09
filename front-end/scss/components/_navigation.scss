@@ -1,4 +1,6 @@
 nav {
+
+
     .navbar-brand {
         font-size: 1.4em;
         text-transform: uppercase;
@@ -10,5 +12,11 @@ nav {
 
     .form-control {
         width: 80%;
+    }
+
+    @include mediaMax(769px) {
+        .navbar-brand {
+            font-size: 1.2em;
+        }
     }
 }
