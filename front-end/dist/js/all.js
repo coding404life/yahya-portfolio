@@ -1,13 +1,20 @@
 'use strict';
 $(document).ready(() => {
+    // * --------------------------------------start navbar click event------------------------------- *
+    $('#navbarNav ul').click(function (e) {
+        e.preventDefault();
+        $(e.target).addClass('active').parent().siblings().children().removeClass('active');
+    });
 
-    // * ----------------------------------------start------------------------------------------------ *
+    // * --------------------------------------end navbar click event------------------------------- *
 
-    //  navbar on scroll code
+
+    // * --------------------------------------start nav on scroll------------------------------- *
+
     // 1- on scroll fire the function navScroll function
-    window.onscroll = () => {
+    $(window).scroll(() => {
         navScroll();
-    }
+    });
     // 2- get the position of the navbar = 0
     const sticky = $('.navbar').offset();
     const navScroll = () => {
@@ -18,15 +25,14 @@ $(document).ready(() => {
             $('.navbar').removeClass('sticky');
         }
     }
+    // * ---------------------------------end nav on scroll---------------------------------- *
 
-    // * ------------------------------------------end---------------------------------------------- *
 
+    // * --------------------------start latest work section------------------------------------ *
 
-    // * -------------------------------------------start--------------------------------------------- *
-    //latest work section code 
-    // 2- when clicking on nav hide and all other content and show content with specific class name
+    // 1- when clicking on nav link show  content and hide content dosent have specefic class name
     $('#work-nav').click((e) => {
-        //add a class for active to the nav list and remove from others
+        //add a class active to the nav link and remove from others
         $(e.target).addClass('active').siblings().removeClass('active');
 
         //select the target dataset of the element
@@ -90,12 +96,10 @@ $(document).ready(() => {
                 break;
         }
     });
+    // * ------------------------------------end latest work section--------------------------- *
 
-    // * ---------------------------------------------end------------------------------------------- *
 
-
-    // * -------------------------------------------start--------------------------------------------- *
-    // testimonials slider code
+    // * ---------------------------------start-testimonials slider code------------------------------- *
     let clientIndex = 1;
 
     slide(clientIndex);
@@ -128,5 +132,5 @@ $(document).ready(() => {
         slide[clientIndex - 1].classList.remove('display-none');
         bullets[clientIndex - 1].classList.add('active');
     }
-    // * -------------------------------------------end--------------------------------------------- *
+    // * ----------------------------------end-testimonials slider code------------------------------ *
 });
