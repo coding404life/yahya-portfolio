@@ -2,7 +2,6 @@
 $(document).ready(() => {
     // * ----------start navbar click event------------------ *
     $('#navbarNav ul').click(function (e) {
-        e.preventDefault();
         $(e.target).addClass('active').parent().siblings().children().removeClass('active');
     });
 
@@ -34,16 +33,13 @@ $(document).ready(() => {
     $('#work-nav').click((e) => {
         //add a class active to the nav link and remove from others
         $(e.target).addClass('active').siblings().removeClass('active');
-
         //select the target dataset of the element
         let target = e.target.dataset.link;
         switch (target) {
-            case 'web':
+            case 'all':
                 $('#work-content').children().each((i, element) => {
-                    if ($(element).hasClass('web')) {
+                    if (target === 'all') {
                         $(element).show();
-                    } else {
-                        $(element).hide();
                     }
                 });
                 break;
@@ -87,10 +83,13 @@ $(document).ready(() => {
                     }
                 });
                 break;
-            default:
+
+            case 'web':
                 $('#work-content').children().each((i, element) => {
-                    if (target === 'all') {
+                    if ($(element).hasClass('web')) {
                         $(element).show();
+                    } else {
+                        $(element).hide();
                     }
                 });
                 break;
