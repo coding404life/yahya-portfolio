@@ -26,10 +26,7 @@ app.get('/', (req, res) => {
 app.get('/blog', (req, res) => {
     res.render('blog');
 });
-// render portfolio page
-app.get('/portfolio', (req, res) => {
-    res.render('portfolio');
-})
+
 // render contact us page
 app.get('/contact', (req, res) => {
     res.render('contact');
@@ -39,6 +36,20 @@ app.get('/contact', (req, res) => {
 app.get('/services', (req, res) => {
     res.render('services');
 });
+
+// start render portfolio pages *********
+app.get('/portfolio', (req, res) => {
+    res.render('portfolio');
+})
+
+// render resturant project
+app.get('/portfolio/resturant-project', (req, res) => {
+    res.render('portfolio-projects/resturant');
+})
+
+
+
+// end render portfolio pages *********
 
 // render 404 page
 app.use((req, res) => {

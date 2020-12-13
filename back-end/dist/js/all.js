@@ -34,7 +34,7 @@ $(document).ready(() => {
             case 'all':
                 $('#work-content').children().each((i, element) => {
                     if (target === 'all') {
-                        $(element).show();
+                        $(element).fadeIn('slow');
                     }
                 });
                 break;
@@ -42,7 +42,7 @@ $(document).ready(() => {
             case 'mobile':
                 $('#work-content').children().each((i, element) => {
                     if ($(element).hasClass('mobile')) {
-                        $(element).show();
+                        $(element).fadeIn('slow');
                     } else {
                         $(element).hide();
                     }
@@ -52,7 +52,7 @@ $(document).ready(() => {
             case 'photography':
                 $('#work-content').children().each((i, element) => {
                     if ($(element).hasClass('photography')) {
-                        $(element).show();
+                        $(element).fadeIn('slow');
                     } else {
                         $(element).hide();
                     }
@@ -62,7 +62,7 @@ $(document).ready(() => {
             case 'design':
                 $('#work-content').children().each((i, element) => {
                     if ($(element).hasClass('design')) {
-                        $(element).show();
+                        $(element).fadeIn('slow');
                     } else {
                         $(element).hide();
                     }
@@ -72,7 +72,7 @@ $(document).ready(() => {
             case 'type':
                 $('#work-content').children().each((i, element) => {
                     if ($(element).hasClass('type')) {
-                        $(element).show();
+                        $(element).fadeIn('slow');
                     } else {
                         $(element).hide();
                     }
@@ -82,7 +82,7 @@ $(document).ready(() => {
             case 'web':
                 $('#work-content').children().each((i, element) => {
                     if ($(element).hasClass('web')) {
-                        $(element).show();
+                        $(element).fadeIn('slow');
                     } else {
                         $(element).hide();
                     }
