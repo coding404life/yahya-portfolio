@@ -1,12 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+const sendMail = require('./mail')
 const {
     render
 } = require('ejs');
 
 // init express <3
 const app = express();
+const log = console.log;
 
 // middlewares
 app.set('view engine', 'ejs') //register view engine to change the default folder for views app.set('views', 'myviews')
@@ -46,10 +48,34 @@ app.get('/portfolio', (req, res) => {
 app.get('/portfolio/resturant-project', (req, res) => {
     res.render('portfolio-projects/resturant');
 })
-
-
-
 // end render portfolio pages *********
+
+//email contact form
+app.post('/email', (req, res) => {
+    // todo:
+    //send email here
+    const {
+        subject,
+        email,
+        text
+    } = req.body;
+    console.log('data', req.body);
+    // email, subject, text
+    sendMail(email, subject, text, (err, data) => {
+        if (err) {
+            res.status(500).json({
+                message: 'internal error'
+            })
+        } else {
+            res.json({
+                message: 'Email sent!!!!'
+            });
+        }
+    });
+    res.json({
+        message: 'message received!!!'
+    });
+});
 
 // render 404 page
 app.use((req, res) => {
@@ -57,5 +83,5 @@ app.use((req, res) => {
 });
 
 //listen to port
-console.log('conntected');
-app.listen('3005');
+
+app.listen('3005', () => log('server connnected'));

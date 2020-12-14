@@ -34,7 +34,7 @@ $(document).ready(() => {
             case 'all':
                 $('#work-content').children().each((i, element) => {
                     if (target === 'all') {
-                        $(element).fadeIn('slow');
+                        $(element).show();
                     }
                 });
                 break;
@@ -42,7 +42,7 @@ $(document).ready(() => {
             case 'mobile':
                 $('#work-content').children().each((i, element) => {
                     if ($(element).hasClass('mobile')) {
-                        $(element).fadeIn('slow');
+                        $(element).show();
                     } else {
                         $(element).hide();
                     }
@@ -52,7 +52,7 @@ $(document).ready(() => {
             case 'photography':
                 $('#work-content').children().each((i, element) => {
                     if ($(element).hasClass('photography')) {
-                        $(element).fadeIn('slow');
+                        $(element).show();
                     } else {
                         $(element).hide();
                     }
@@ -62,7 +62,7 @@ $(document).ready(() => {
             case 'design':
                 $('#work-content').children().each((i, element) => {
                     if ($(element).hasClass('design')) {
-                        $(element).fadeIn('slow');
+                        $(element).show();
                     } else {
                         $(element).hide();
                     }
@@ -72,7 +72,7 @@ $(document).ready(() => {
             case 'type':
                 $('#work-content').children().each((i, element) => {
                     if ($(element).hasClass('type')) {
-                        $(element).fadeIn('slow');
+                        $(element).show();
                     } else {
                         $(element).hide();
                     }
@@ -82,7 +82,7 @@ $(document).ready(() => {
             case 'web':
                 $('#work-content').children().each((i, element) => {
                     if ($(element).hasClass('web')) {
-                        $(element).fadeIn('slow');
+                        $(element).show();
                     } else {
                         $(element).hide();
                     }
@@ -138,4 +138,27 @@ $(document).ready(() => {
         }
         // * -------------end-testimonials slider code---------------- *
     }
+
+
+    // * -------------start- contact form---------------- *
+    $('#contact-us').on('submit', function (e) {
+        e.preventDefault();
+
+        const subject = $('#name').val().trim();
+        const email = $('#email').val().trim();
+        const text = $('#text').val().trim();
+
+        const data = {
+            subject,
+            email,
+            text
+        }
+
+        $.post('/email', data, () => {
+            console.log('server recived our data');
+        });
+
+    });
+    // * -------------end- contact form---------------- *
+
 });
