@@ -48,6 +48,16 @@ app.get('/portfolio', (req, res) => {
 app.get('/portfolio/resturant-project', (req, res) => {
     res.render('portfolio-projects/resturant');
 })
+
+// render portfolio project
+app.get('/portfolio/portfolio-project', (req, res) => {
+    res.render('portfolio-projects/portfolio');
+})
+
+// render portfolio project
+app.get('/portfolio/hospital', (req, res) => {
+    res.render('portfolio-projects/hospital');
+})
 // end render portfolio pages *********
 
 //email contact form

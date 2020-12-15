@@ -1,5 +1,6 @@
 'use strict';
 $(document).ready(() => {
+
     // * ----------start navbar click event------------------ *
     // $('#navbarNav ul li a').click(() => {
     //     $('li a').removeClass('active');
@@ -25,71 +26,28 @@ $(document).ready(() => {
     // * -----------------start latest work section----------- *
 
     // 1- when clicking on nav link show  content and hide content dosent have specefic class name
-    $('#work-nav').click((e) => {
-        //add a class active to the nav link and remove from others
-        $(e.target).addClass('active').siblings().removeClass('active');
-        //select the target dataset of the element
-        let target = e.target.dataset.link;
-        switch (target) {
-            case 'all':
-                $('#work-content').children().each((i, element) => {
-                    if (target === 'all') {
-                        $(element).show();
-                    }
-                });
-                break;
+    $('#work-content').children().not('.web').hide();
 
-            case 'mobile':
-                $('#work-content').children().each((i, element) => {
-                    if ($(element).hasClass('mobile')) {
-                        $(element).show();
-                    } else {
-                        $(element).hide();
-                    }
-                });
-                break;
+    // $(".gallery-button").click(function () {
+    //     var value = $(this).attr("data-filter");
+    //     if (value == "all") {
+    //         $(".mix").show("1000");
+    //     } else {
+    //         $(".mix").not("." + value).hide('1000');
+    //         $(".mix").filter("." + value).show('1000');
+    //     }
+    // });
 
-            case 'photography':
-                $('#work-content').children().each((i, element) => {
-                    if ($(element).hasClass('photography')) {
-                        $(element).show();
-                    } else {
-                        $(element).hide();
-                    }
-                });
-                break;
+    //triger mixitup 
+    var containerEl = document.querySelector('#work-content');
 
-            case 'design':
-                $('#work-content').children().each((i, element) => {
-                    if ($(element).hasClass('design')) {
-                        $(element).show();
-                    } else {
-                        $(element).hide();
-                    }
-                });
-                break;
+    var mixer = mixitup(containerEl);
 
-            case 'type':
-                $('#work-content').children().each((i, element) => {
-                    if ($(element).hasClass('type')) {
-                        $(element).show();
-                    } else {
-                        $(element).hide();
-                    }
-                });
-                break;
-
-            case 'web':
-                $('#work-content').children().each((i, element) => {
-                    if ($(element).hasClass('web')) {
-                        $(element).show();
-                    } else {
-                        $(element).hide();
-                    }
-                });
-                break;
-        }
+    //add a class active to the nav link and remove from others
+    $('#work-nav li').click(function () {
+        $(this).addClass('active').siblings().removeClass('active');
     });
+
     // * ----------------end latest work section---------------- *
 
 
