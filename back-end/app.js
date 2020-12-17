@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
@@ -9,6 +10,7 @@ const {
 // init express <3
 const app = express();
 const log = console.log;
+const PORT = process.env.PORT || 3005
 
 // middlewares
 app.set('view engine', 'ejs') //register view engine to change the default folder for views app.set('views', 'myviews')
@@ -82,9 +84,7 @@ app.post('/email', (req, res) => {
             });
         }
     });
-    res.json({
-        message: 'message received!!!'
-    });
+   
 });
 
 // render 404 page
@@ -94,4 +94,4 @@ app.use((req, res) => {
 
 //listen to port
 
-app.listen('3005', () => log('server connnected'));
+app.listen(PORT, () => log(`server connnected on port :${PORT}`));
